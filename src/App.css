@@ -1,3 +1,159 @@
+@font-face {
+  font-family: "Beaufort for LOL Bold";
+  src: url("@font-face/12420e8c141ca7c3dff41de2d59df13e.eot");
+  /* IE9*/
+  src: url("@font-face/12420e8c141ca7c3dff41de2d59df13e.eot?#iefix") format("@font-face/embedded-opentype"),
+    /* IE6-IE8 */
+    url("@font-face/12420e8c141ca7c3dff41de2d59df13e.woff2") format("@font-face/woff2"),
+    /* chrome、firefox */
+    url("@font-face/12420e8c141ca7c3dff41de2d59df13e.woff") format("@font-face/woff"),
+    /* chrome、firefox */
+    url("@font-face/12420e8c141ca7c3dff41de2d59df13e.ttf") format("@font-face/truetype"),
+    /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url("@font-face/12420e8c141ca7c3dff41de2d59df13e.svg#Beaufort for LOL Bold") format("@font-face/svg");
+  /* iOS 4.1- */
+}
+
+/*=============================================
+=            Reseter            =
+=============================================*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+/*=====  End of End Reseter  ======*/
+
+
+
 .App {
   text-align: center;
 }
@@ -13,15 +169,28 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+body {
+  background-color: #0c1618;
+  font-family: "Beaufort for LOL Bold";
+  color: #5cc6af;
+
+}
+
+.container {
+  max-width: 1024px;
+  margin: auto;
+  background-color: #132225;
+}
+
+h1 {
+  color: #fef598;
+  font-size: 42px;
+  line-height: 1.5;
+}
+
+p {
+  line-height: 1;
 }
 
 .App-link {
@@ -32,6 +201,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
