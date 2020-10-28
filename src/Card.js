@@ -31,12 +31,22 @@ export default function Card(props) {
         <Transition in={inProp} timeout={500}>
             {state => (
                 <>
-                    <div className="card" style={{
+                    <div className="grid__col grid__col--1-of-3" style={{
                         ...defaultStyle,
                         ...transitionStyles[state],
                     }}>
-                        <h3>{`${data.user.name.first} - ${data.user.name.last}`}</h3>
-                        <p>{props.data.text}</p>
+                        <div className="card">
+                            <h3>{`${data.user.name.first} - ${data.user.name.last}`}</h3>
+                            <p>{props.data.text}</p>
+                            <div className="info grid">
+                                <div className="upvotes grid__col--1-of-2">
+                                    {data.upvotes}
+                                </div>
+                                <div className="type grid__col--1-of-2">
+                                    {data.type}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </>
             )}

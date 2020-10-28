@@ -15,13 +15,12 @@ export default function Clock() {
             let h = myDate.getHours();
             let m = myDate.getMinutes();
             let s = myDate.getSeconds();
-            setTime(`${addZero(h)}:${addZero(m)}:${addZero(s)}`)
+            setTime(`${addZero(h)}:${addZero(m)}:${addZero(s)} AM`)
         }, 1000)
         return () => timer.clearInterval();
     }, [])
     return (
-        <>
+        <div className="clock">
             {time}
-        </>
-    )
+        </div>)
 }

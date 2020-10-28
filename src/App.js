@@ -10,7 +10,7 @@ class App extends React.Component {
       data: null,
       status: 'Loading',
       pag: 1,
-      results: 5
+      results: 9
     }
   }
   componentDidMount() {
@@ -74,11 +74,17 @@ class App extends React.Component {
         <div className="page">
           <div className="container">
             <div className="status">{this.state.status}</div>
-            {this.state.data ? this.renderCards() : ''}
+            {this.state.data ? <h3>Showing {this.state.results} of the total: {this.state.data.length} - ({this.state.pag}/{this.state.data.length / this.state.results}pg)</h3> : ''}
+            {this.state.data ? <div className="grid">{this.renderCards()}</div> : ''}
             {this.state.data ? (<div className="pager">
               <span onClick={() => this.pager('down')} className="prev">Prev</span>
               <span onClick={() => this.pager('up')} className="next">Next</span>
             </div>) : ''}
+          </div>
+        </div>
+        <div className="footer">
+          <div className="container">
+            <p className="sub">Many thanks to  <a target="_blank" href="cat-fact.herokuapp.com/">cat-fact.herokuapp.com</a></p>
           </div>
         </div>
       </div >

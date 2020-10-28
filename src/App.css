@@ -3,17 +3,17 @@
 
 @font-face {
   font-family: "Beaufort for LOL Bold";
-  src: url("@font-face/12420e8c141ca7c3dff41de2d59df13e.eot");
+  src: url("font-face/12420e8c141ca7c3dff41de2d59df13e.eot");
   /* IE9*/
-  src: url("@font-face/12420e8c141ca7c3dff41de2d59df13e.eot?#iefix") format("@font-face/embedded-opentype"),
+  src: url("font-face/12420e8c141ca7c3dff41de2d59df13e.eot?#iefix") format("embedded-opentype"),
     /* IE6-IE8 */
-    url("@font-face/12420e8c141ca7c3dff41de2d59df13e.woff2") format("@font-face/woff2"),
+    url("font-face/12420e8c141ca7c3dff41de2d59df13e.woff2") format("woff2"),
     /* chrome、firefox */
-    url("@font-face/12420e8c141ca7c3dff41de2d59df13e.woff") format("@font-face/woff"),
+    url("font-face/12420e8c141ca7c3dff41de2d59df13e.woff") format("woff"),
     /* chrome、firefox */
-    url("@font-face/12420e8c141ca7c3dff41de2d59df13e.ttf") format("@font-face/truetype"),
+    url("font-face/12420e8c141ca7c3dff41de2d59df13e.ttf") format("truetype"),
     /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-    url("@font-face/12420e8c141ca7c3dff41de2d59df13e.svg#Beaufort for LOL Bold") format("@font-face/svg");
+    url("font-face/12420e8c141ca7c3dff41de2d59df13e.svg#Beaufort for LOL Bold") format("svg");
   /* iOS 4.1- */
 }
 
@@ -106,7 +106,6 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
 }
 
@@ -159,9 +158,13 @@ table {
 
 body {
   background-color: #0c1618;
-  font-family: "Beaufort for LOL Bold";
+  font-family: "Beaufort for LOL Bold" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
   color: #5cc6af;
-
 }
 
 .vmiddle {
@@ -173,6 +176,7 @@ body {
 }
 
 .container,
+.footer,
 .page {
   max-width: 1024px;
   margin: auto;
@@ -186,7 +190,7 @@ h1 {
   line-height: 1.5;
 }
 
-h1 {
+h2 {
   color: #fef598;
   font-size: 38px;
   line-height: 1.5;
@@ -200,6 +204,15 @@ h3 {
 
 p {
   line-height: 1;
+}
+
+a {
+  color: #fef598;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
 }
 
 /*----------  Header  ----------*/
@@ -217,6 +230,12 @@ p {
 /*----------  Card  ----------*/
 .card {
   padding: 25px 15px;
+}
+
+.card .info {
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .card~.card {
@@ -248,53 +267,23 @@ p {
   padding: 15px;
 }
 
+/*----------  Foooter  ----------*/
+
+.footer {
+  padding: 25px;
+  text-align: center;
+}
+
+.footer .sub {
+  font-size: 14px;
+}
+
 /*=============================================
 =            GRID            =
 =============================================*/
 
 @charset "UTF-8";
 
-/*-----------------------------------*\
-
-  $TOAST-GRID
-
-  An insane grid.
-  You'd be mad to use it.
-
-  Usage
-  =====
-
-  Assuming default values:
-
-  <div class="grid">
-    <div class="grid__col grid__col--1-of-2">
-      A half-width column.
-    </div>
-    <div class="grid__col grid__col--1-of-4 grid__col--pull-1-of-4">
-      A quarter, pulled left by its own width. You get this, right?
-    </div>
-  </div>
-
-
-  Customisation
-  =============
-
-  $toast-grid-namespace and $toast-grid-column-namespace
-  adjusts the class names for the grid. With
-  default values, grid wrappers have a class
-  of '.grid' and columns '.grid__col'.
-
-  $toast-col-groups(n) adjusts column divisions.
-  For example, $toast-col-groups(12) will produce
-  a 12-column grid. $col-groups(3,6,8)
-  will produce a 3-, 6-, and 8-column grid.
-
-  $toast-gutter-width is—you guessed it—the gutter
-  width. Accepts any unit.
-
-  That's it. Have fun.
-
-\*-----------------------------------*/
 .grid {
   list-style: none;
   margin-left: -20px;
@@ -728,7 +717,12 @@ p {
   vertical-align: middle;
 }
 
-/*# sourceMappingURL=grid.css.map */
-
-
 /*=====  End of GRID  ======*/
+
+/*----------  clock  ----------*/
+
+.clock {
+  font-size: 24px;
+  text-align: right;
+  padding: 15px;
+}
