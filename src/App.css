@@ -1,3 +1,6 @@
+/*----------  FONT  ----------*/
+
+
 @font-face {
   font-family: "Beaufort for LOL Bold";
   src: url("@font-face/12420e8c141ca7c3dff41de2d59df13e.eot");
@@ -152,23 +155,10 @@ table {
 
 /*=====  End of End Reseter  ======*/
 
-
-
+/*----------  Globals  ----------*/
 .App {
-  text-align: center;
+  margin: 25px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 
 body {
   background-color: #0c1618;
@@ -185,7 +175,21 @@ body {
 
 h1 {
   color: #fef598;
-  font-size: 42px;
+  text-align: center;
+  padding: 15px;
+  font-size: 52px;
+  line-height: 1.5;
+}
+
+h1 {
+  color: #fef598;
+  font-size: 38px;
+  line-height: 1.5;
+}
+
+h3 {
+  color: #fef598;
+  font-size: 24px;
   line-height: 1.5;
 }
 
@@ -193,16 +197,37 @@ p {
   line-height: 1;
 }
 
-.App-link {
-  color: #61dafb;
+/*----------  Card  ----------*/
+.card {
+  margin: 10px 0;
+  padding: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+.card~.card {
+  border-top: 1px solid rgba(255, 255, 255, .16);
+}
 
-  to {
-    transform: rotate(360deg);
-  }
+/*----------  Pager  ----------*/
+.pager span {
+  padding: 16px 10px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 50%;
+  color: #fef598;
+  border: 1px solid #fef598;
+}
+
+.pager span~span {
+  margin-left: 25px;
+}
+
+.pager span:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+.pager {
+  text-align: center;
+  display: block;
+  padding: 15px;
 }

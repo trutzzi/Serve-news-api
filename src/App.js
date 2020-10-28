@@ -1,30 +1,72 @@
 import React from 'react';
 import './App.css';
-import Nav from './Nav';
+import Card from './Card'
 
 class App extends React.Component {
   constructor() {
     super();
     this.incraseHandle = this.incraseHandle.bind(this)
     this.state = {
-      number: 0
+      data: null,
+      status: 'Loading',
+      pag: 1,
+      results: 5
     }
   }
   componentDidMount() {
     console.log("Rendered!")
+    this.fetchData();
+  }
+  fetchData() {
+    const data = new Promise((resolve, reject) => {
+      return fetch('https://cat-fact.herokuapp.com/facts').then(Response => {
+        if (Response.ok) {
+          resolve(Response)
+        } else {
+          reject(new Error("Unable to get data."))
+        }
+      })
+    })
+    data.then(res => res.json())
+      .then(data => {
+        this.setState({
+          data: data.all,
+          status: ''
+        })
+      })
+      .catch(er => this.setState({ status: er.toString() }));
   }
   incraseHandle() {
     this.setState(prevState => ({ number: prevState.number + 1 }))
   }
+  renderCards() {
+    let cards = [];
+    this.state.data.map(data => cards.push(<Card data={data} />))
+    return cards.slice((this.state.pag - 1) * this.state.results, (this.state.pag * this.state.results));
+  }
+  pager(direction) {
+    switch (direction) {
+      case 'up':
+        this.setState(prevState => ({ pag: prevState.pag + 1 }))
+        this.fetchData();
+        break
+      case 'down':
+        this.setState(prevState => ({ pag: prevState.pag - 1 }))
+        this.fetchData();
+        break
+    }
+  }
   render() {
     return (
-      < div className="App" >
+      <div className="App" >
         <div className="container">
-          <h1>League of Legends {this.state.number}</h1>
-          <h2>DEV PAUSED THE PROJECT</h2>
-          <Nav number={this.state.number} />
-          <p>API Development in progres...</p>
-          <button onClick={this.incraseHandle}>Click me</button>
+          <h1>Cat Facts</h1>
+          <div className="status">{this.state.status}</div>
+          {this.state.data ? this.renderCards() : ''}
+          {this.state.data ? (<div className="pager">
+            <span onClick={() => this.pager('down')} className="prev">Prev</span>
+            <span onClick={() => this.pager('up')} className="next">Next</span>
+          </div>) : ''}
         </div>
       </div >
     );
