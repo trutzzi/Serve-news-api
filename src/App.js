@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Card from './Card'
-
+import Clock from './Clock'
 class App extends React.Component {
   constructor() {
     super();
@@ -59,14 +59,27 @@ class App extends React.Component {
   render() {
     return (
       <div className="App" >
-        <div className="container">
-          <h1>Cat Facts</h1>
-          <div className="status">{this.state.status}</div>
-          {this.state.data ? this.renderCards() : ''}
-          {this.state.data ? (<div className="pager">
-            <span onClick={() => this.pager('down')} className="prev">Prev</span>
-            <span onClick={() => this.pager('up')} className="next">Next</span>
-          </div>) : ''}
+        <div className="header">
+          <div className="container">
+            <div className="grid">
+              <div className="grid__col grid__col--1-of-2 grid__col--am">
+                <h1>Cats Facts</h1>
+              </div>
+              <div className="grid__col grid__col--1-of-2 grid__col--am">
+                <Clock />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="page">
+          <div className="container">
+            <div className="status">{this.state.status}</div>
+            {this.state.data ? this.renderCards() : ''}
+            {this.state.data ? (<div className="pager">
+              <span onClick={() => this.pager('down')} className="prev">Prev</span>
+              <span onClick={() => this.pager('up')} className="next">Next</span>
+            </div>) : ''}
+          </div>
         </div>
       </div >
     );
