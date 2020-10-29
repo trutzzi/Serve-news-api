@@ -11,10 +11,18 @@ class App extends React.Component {
       status: 'Loading',
       pag: 1,
       maxPages: null,
+      loaderSts: 0,
       results: 9
     }
   }
   componentDidMount() {
+    const myLoader = setInterval(() => {
+      if (this.state.loaderSts <= 100 && this.state.data) {
+        this.setState(prevState => ({ loaderSts: prevState.loaderSts + 0.5 }))
+      } else {
+        this.setState(prevState => ({ loaderSts: 0, pag: prevState.pag + 0.5 }))
+      }
+    }, 100)
     console.log("Rendered main app")
     this.fetchData();
   }
@@ -45,6 +53,7 @@ class App extends React.Component {
     this.state.data.map(data => cards.push(<Card data={data} />))
     return cards.slice((this.state.pag - 1) * this.state.results, (this.state.pag * this.state.results));
   }
+  componentDidCatch
   pager(direction) {
     switch (direction) {
       case 'up':
@@ -75,6 +84,9 @@ class App extends React.Component {
         <div className="page">
           <div className="container">
             <div className="status">{this.state.status}</div>
+            {this.state.data && <div className="loader">
+              <div style={{ width: this.state.loaderSts + '%' }} className="bar"></div>
+            </div>}
             {this.state.data ? <div className="grid">{this.renderCards()}</div> : ''}
             {this.state.data ? (<div className="pager">
               {this.state.pag > 1 && <span onClick={() => this.pager('down')} className="prev">Prev</span>}

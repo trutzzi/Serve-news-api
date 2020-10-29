@@ -171,15 +171,17 @@ body {
   vertical-align: middle;
 }
 
-.page {
-  background-color: #132225;
-}
 
 .container,
 .footer,
 .page {
   max-width: 1024px;
   margin: auto;
+}
+
+.page {
+  background-color: #132225;
+  margin-top: -10px;
 }
 
 h1 {
@@ -237,6 +239,7 @@ a:hover {
 }
 
 /*----------  Pager  ----------*/
+
 .pager span {
   padding: 16px 10px;
   cursor: pointer;
@@ -721,4 +724,20 @@ a:hover {
   font-size: 24px;
   text-align: right;
   padding: 15px;
+}
+
+/*----------  Loader  ----------*/
+
+.loader {
+  position: relative;
+  height: 5px;
+  border: 1px solid #fef598;
+  overflow: hidden;
+}
+
+.loader .bar {
+  background-color: #fef598;
+  height: 100%;
+  width: 0%;
+  position: absolute;
 }
