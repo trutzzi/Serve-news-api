@@ -232,12 +232,6 @@ a:hover {
   padding: 25px 15px;
 }
 
-.card .info {
-  text-transform: capitalize;
-  font-weight: bold;
-  font-size: 14px;
-}
-
 .card~.card {
   border-top: 1px solid rgba(255, 255, 255, .16);
 }
@@ -252,8 +246,10 @@ a:hover {
   border: 1px solid #fef598;
 }
 
-.pager span~span {
-  margin-left: 25px;
+.pager .pages {
+  display: inline-block;
+  text-align: center;
+  padding: 15px;
 }
 
 .pager span:hover {

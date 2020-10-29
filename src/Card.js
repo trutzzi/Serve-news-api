@@ -19,33 +19,24 @@ export default function Card(props) {
     const data = props.data
     const [inProp, setInProp] = useState(false);
     useEffect(() => {
-        console.log(props)
         setInProp(true)
-        console.log("Rendered")
+        console.log('Card mounted')
         return () => {
-            console.log("Deleted")
             setInProp(false)
+            console.log('Card unmounted');
         }
     }, [props])
     return (
         <Transition in={inProp} timeout={500}>
             {state => (
                 <>
-                    <div className="grid__col grid__col--1-of-3" style={{
+                    <div key={props.data._id} className="grid__col grid__col--1-of-3" style={{
                         ...defaultStyle,
                         ...transitionStyles[state],
                     }}>
                         <div className="card">
-                            <h3>{`${data.user.name.first} - ${data.user.name.last}`}</h3>
+                            <h3>{`${data.user ? data.user.name.first : ''} ${data.user ? data.user.name.last : ''}`}</h3>
                             <p>{props.data.text}</p>
-                            <div className="info grid">
-                                <div className="upvotes grid__col--1-of-2">
-                                    {data.upvotes}
-                                </div>
-                                <div className="type grid__col--1-of-2">
-                                    {data.type}
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </>
