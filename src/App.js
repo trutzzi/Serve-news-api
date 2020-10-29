@@ -15,7 +15,7 @@ class App extends React.Component {
     }
   }
   componentDidMount() {
-    console.log("Rendered!")
+    console.log("Rendered main app")
     this.fetchData();
   }
   fetchData() {
@@ -43,8 +43,6 @@ class App extends React.Component {
   renderCards() {
     let cards = [];
     this.state.data.map(data => cards.push(<Card data={data} />))
-    console.log((this.state.pag - 1) * this.state.results);
-    console.log(this.state.pag * this.state.results);
     return cards.slice((this.state.pag - 1) * this.state.results, (this.state.pag * this.state.results));
   }
   pager(direction) {

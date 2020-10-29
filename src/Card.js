@@ -19,8 +19,11 @@ export default function Card(props) {
     const data = props.data
     const [inProp, setInProp] = useState(false);
     useEffect(() => {
+        // Mount enable animation
         setInProp(true)
         console.log('Card mounted')
+        
+        // Unmount clean code
         return () => {
             setInProp(false)
             console.log('Card unmounted');
