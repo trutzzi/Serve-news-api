@@ -53,7 +53,6 @@ class App extends React.Component {
     this.state.data.map(data => cards.push(<Card data={data} />))
     return cards.slice((this.state.pag - 1) * this.state.results, (this.state.pag * this.state.results));
   }
-  componentDidCatch
   pager(direction) {
     switch (direction) {
       case 'up':
