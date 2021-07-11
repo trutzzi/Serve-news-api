@@ -22,7 +22,7 @@ class App extends React.Component {
     }
   }
   componentDidMount() {
-    const myLoader = setInterval(() => {
+    setInterval(() => {
       if (this.state.loaderSts <= 100 && this.state.data) {
         this.setState(prevState => ({ loaderSts: prevState.loaderSts + 0.5 }))
       } else {
@@ -69,6 +69,9 @@ class App extends React.Component {
         this.setState(prevState => ({ pag: prevState.pag - 1 }))
         this.fetchData();
         break
+      default: 
+      console.log('Unexpected action');
+      break
     }
   }
   render() {
