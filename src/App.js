@@ -4,8 +4,11 @@ import Card from './Card'
 import Clock from './Clock'
 class App extends React.Component {
 
-  // TODO This API is not longer working
-  
+  /* TODO
+  This API is not longer working
+  Find new api mockup data
+  */
+
   constructor() {
     super();
     this.incraseHandle = this.incraseHandle.bind(this)
