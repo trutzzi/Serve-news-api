@@ -3,6 +3,9 @@ import './App.css';
 import Card from './Card'
 import Clock from './Clock'
 class App extends React.Component {
+
+  // TODO This API is not longer working
+  
   constructor() {
     super();
     this.incraseHandle = this.incraseHandle.bind(this)
